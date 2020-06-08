@@ -10,11 +10,12 @@
 		]
 	},
 	"scripts": {
-		"client": "yarn --cwd cms-frontend dev",
-		"server": "yarn --cwd cms-strapi develop",
-		"dev": "concurrently -n client,server -c magenta,cyan \"yarn client\" \"yarn server\""
+		"dev": "node dev.js"
 	},
 	"devDependencies": {
 		"concurrently": "^5.2.0"
+	},
+	"dependencies": {
+		"dotenv-flow": "^3.1.0"
 	}
 }
