@@ -1,0 +1,20 @@
+{
+	"private": true,
+	"workspaces": {
+		"packages": [
+			"cms-strapi",
+			"cms-frontend"
+		],
+		"nohoist": [
+			"**"
+		]
+	},
+	"scripts": {
+		"client": "yarn --cwd cms-frontend dev",
+		"server": "yarn --cwd cms-strapi develop",
+		"dev": "concurrently -n client,server -c magenta,cyan \"yarn client\" \"yarn server\""
+	},
+	"devDependencies": {
+		"concurrently": "^5.2.0"
+	}
+}

@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_all_page_components_customs",
+  "info": {
+    "name": "Custom",
+    "icon": "code"
+  },
+  "options": {},
+  "attributes": {
+    "data": {
+      "type": "json"
+    }
+  }
+}

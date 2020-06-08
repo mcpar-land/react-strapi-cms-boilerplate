@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "pages",
+  "info": {
+    "name": "Page"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "uri": {
+      "type": "string",
+      "unique": true
+    },
+    "components": {
+      "type": "dynamiczone",
+      "components": [
+        "all-page-components.attachment",
+        "all-page-components.image-gallery",
+        "all-page-components.image-header",
+        "all-page-components.rich-text"
+      ]
+    }
+  }
+}

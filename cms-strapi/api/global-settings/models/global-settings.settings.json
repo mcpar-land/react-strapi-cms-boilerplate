@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "global_settings",
+  "info": {
+    "name": "Global Settings"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "site_title": {
+      "type": "string"
+    },
+    "social_links": {
+      "type": "component",
+      "repeatable": true,
+      "component": "other.social-link"
+    },
+    "show_social_links": {
+      "type": "boolean",
+      "default": true
+    }
+  }
+}

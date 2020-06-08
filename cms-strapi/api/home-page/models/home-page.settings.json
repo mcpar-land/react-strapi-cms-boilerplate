@@ -1,0 +1,23 @@
+{
+  "kind": "singleType",
+  "collectionName": "home_pages",
+  "info": {
+    "name": "Home Page"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "components": {
+      "type": "dynamiczone",
+      "components": [
+        "all-page-components.attachment",
+        "all-page-components.custom",
+        "all-page-components.image-gallery",
+        "all-page-components.image-header",
+        "all-page-components.rich-text"
+      ]
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_menu_page_references",
+  "info": {
+    "name": "Page Reference",
+    "icon": "file"
+  },
+  "options": {},
+  "attributes": {
+    "page": {
+      "model": "page"
+    }
+  }
+}

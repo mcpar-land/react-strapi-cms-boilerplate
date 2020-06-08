@@ -1,0 +1,22 @@
+{
+  "collectionName": "components_all_page_components_image_headers",
+  "info": {
+    "name": "Image Header",
+    "icon": "image"
+  },
+  "options": {},
+  "attributes": {
+    "background": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "images"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

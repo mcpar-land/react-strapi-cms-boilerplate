@@ -1,0 +1,13 @@
+{
+  "collectionName": "components_page_components_rich_texts",
+  "info": {
+    "name": "Rich Text",
+    "icon": "file-alt"
+  },
+  "options": {},
+  "attributes": {
+    "text": {
+      "type": "richtext"
+    }
+  }
+}

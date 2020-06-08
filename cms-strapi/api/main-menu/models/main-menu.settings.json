@@ -1,0 +1,16 @@
+{
+  "kind": "singleType",
+  "collectionName": "main_menus",
+  "info": {
+    "name": "Main Menu"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "main_menu": {
+      "model": "menu"
+    }
+  }
+}

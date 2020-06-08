@@ -1,0 +1,21 @@
+{
+  "collectionName": "components_all_page_components_attachments",
+  "info": {
+    "name": "Attachment",
+    "icon": "file-archive"
+  },
+  "options": {},
+  "attributes": {
+    "attachment": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files",
+        "images",
+        "videos"
+      ],
+      "plugin": "upload",
+      "required": false
+    }
+  }
+}

@@ -1,0 +1,23 @@
+{
+  "kind": "collectionType",
+  "collectionName": "menus",
+  "info": {
+    "name": "Menu"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "Name": {
+      "type": "string"
+    },
+    "items": {
+      "type": "dynamiczone",
+      "components": [
+        "menu.page-reference",
+        "menu.submenu"
+      ]
+    }
+  }
+}

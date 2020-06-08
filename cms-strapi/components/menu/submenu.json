@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_menu_submenus",
+  "info": {
+    "name": "Submenu",
+    "icon": "list-alt"
+  },
+  "options": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true
+    },
+    "pages": {
+      "collection": "page"
+    }
+  }
+}

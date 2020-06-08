@@ -1,0 +1,28 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/global-settings",
+      "handler": "global-settings.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/global-settings",
+      "handler": "global-settings.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/global-settings",
+      "handler": "global-settings.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
