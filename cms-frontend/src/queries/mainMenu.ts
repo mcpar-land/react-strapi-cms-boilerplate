@@ -9,12 +9,14 @@ export const MAIN_MENU = gql`
 					__typename
 					... on ComponentMenuPageReference {
 						page {
+							title
 							uri
 						}
 					}
 					... on ComponentMenuSubmenu {
 						Name
 						pages {
+							title
 							uri
 						}
 					}
