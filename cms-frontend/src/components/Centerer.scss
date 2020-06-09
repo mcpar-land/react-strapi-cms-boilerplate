@@ -1,0 +1,19 @@
+@import '~bootstrap/scss/bootstrap';
+
+.centerer-wrapper {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	width: 100%;
+}
+
+.centerer {
+	width: 100%;
+	max-width: 1000px;
+}
+
+@each $name, $breakpoint in $grid-breakpoints {
+	.centerer-wrapper-#{$name} .centerer {
+		max-width: $breakpoint;
+	}
+}

@@ -1,12 +1,14 @@
 import React from 'react'
-import { Box, Typography } from '@material-ui/core'
 import Link from 'next/link'
+import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
+
+import './MainMenu.scss'
 
 const MenuItem: React.FC<{ title: string; uri?: string }> = ({
 	title,
 	uri,
 }) => {
-	const e = <Typography variant="button">{title}</Typography>
+	const e = <span>{title}</span>
 
 	return uri ? <Link href={'/' + uri}>{e}</Link> : e
 }
@@ -14,17 +16,35 @@ const MenuItem: React.FC<{ title: string; uri?: string }> = ({
 const MainMenu: React.FC<{ items: any[] }> = ({ items }) => {
 	const menuItems = items.map((item, i) => {
 		if (item.__typename === 'ComponentMenuPageReference') {
-			return <MenuItem key={i} title={item.page.title} uri={item.page.uri} />
+			return (
+				<Nav.Link key={i}>
+					<MenuItem title={item.page.title} uri={item.page.uri} />
+				</Nav.Link>
+			)
 		} else if (item.__typename === 'ComponentMenuSubmenu') {
 			return (
-				<>
-					<MenuItem title={item.Name} />
-				</>
+				<NavDropdown key={i} title={item.Name} id={'nav-dropdown-' + i}>
+					{item.pages.map((subitem, j) => (
+						<NavDropdown.Item key={j}>
+							<MenuItem title={subitem.title} uri={subitem.uri} />
+						</NavDropdown.Item>
+					))}
+				</NavDropdown>
 			)
 		}
 	})
 
-	return <Box>{menuItems}</Box>
+	return (
+		<Navbar bg="light" expand="sm">
+			<Link href="/">
+				<Navbar.Brand>Brand Name</Navbar.Brand>
+			</Link>
+			<Navbar.Toggle />
+			<Navbar.Collapse>
+				<Nav>{menuItems}</Nav>
+			</Navbar.Collapse>
+		</Navbar>
+	)
 }
 
 export default MainMenu

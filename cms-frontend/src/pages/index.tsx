@@ -1,9 +1,9 @@
-import Head from 'next/head'
-import { Container, Box, Typography } from '@material-ui/core'
 import { useQuery } from '@apollo/react-hooks'
 import { MAIN_MENU } from '../queries/mainMenu'
 import { withApollo } from '../libs/apollo'
 import MainMenu from '../components/MainMenu'
+import { Container } from 'next/app'
+import Centerer from '../components/Centerer'
 
 function Home() {
 	const { loading, error, data } = useQuery(MAIN_MENU)
@@ -12,13 +12,11 @@ function Home() {
 	if (loading) return <h3>Loading...</h3>
 
 	return (
-		<Container maxWidth="md">
-			<Box>
-				<MainMenu items={data.mainMenu.main_menu.items} />
-				<Typography variant="h1">Testing Time</Typography>
-				<pre>{JSON.stringify(data, null, 2)}</pre>
-			</Box>
-		</Container>
+		<Centerer width="lg">
+			<MainMenu items={data.mainMenu.main_menu.items} />
+			<h1>Testing Time</h1>
+			<pre>{JSON.stringify(data, null, 2)}</pre>
+		</Centerer>
 	)
 }
 
