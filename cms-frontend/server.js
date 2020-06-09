@@ -9,8 +9,13 @@ const handle = app.getRequestHandler()
 
 const devProxy = {
 	'/api': {
-		target: process.env.STRAPI_ROOT,
+		target: process.env.STRAPI_ROOT + '/graphql',
 		pathRewrite: { '^/api': '' },
+		changeOrigin: true,
+	},
+	'/strapi': {
+		target: process.env.STRAPI_ROOT,
+		pathRewrite: { '^/strapi': '' },
 		changeOrigin: true,
 	},
 }

@@ -13,6 +13,7 @@ export const MAIN_MENU = gql`
 						}
 					}
 					... on ComponentMenuSubmenu {
+						Name
 						pages {
 							uri
 						}

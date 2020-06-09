@@ -6,6 +6,8 @@ import {
 import { HttpLink } from 'apollo-link-http'
 import fetch from 'isomorphic-unfetch'
 
+import fragmentTypes from '../../fragmentTypes.json'
+
 console.log(
 	'creating apollo client with web root',
 	process.env.WEB_ROOT + '/api'
@@ -20,7 +22,9 @@ export default function createApolloClient(initialState: any, ctx: any) {
 			fetch,
 		}),
 		cache: new InMemoryCache({
-			fragmentMatcher: new IntrospectionFragmentMatcher({}),
+			fragmentMatcher: new IntrospectionFragmentMatcher({
+				introspectionQueryResultData: fragmentTypes,
+			}),
 		}).restore(initialState),
 	})
 }

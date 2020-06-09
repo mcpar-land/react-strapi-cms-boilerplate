@@ -1,0 +1,6 @@
+schema: http://localhost:3000/api
+overwrite: true
+generates:
+  ./fragmentTypes.json:
+    plugins:
+      - fragment-matcher

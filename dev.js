@@ -8,17 +8,28 @@ const concurrently = require('concurrently')
 
 // console.log(process.env)
 
-concurrently([
+concurrently(
+	[
+		{
+			command: 'yarn --cwd cms-frontend dev',
+			name: 'client',
+			prefixColor: 'magenta',
+			env: process.env,
+		},
+		{
+			command: 'yarn --cwd cms-strapi develop',
+			name: 'server',
+			prefixColor: 'cyan',
+			env: process.env,
+		},
+		{
+			command: 'yarn --cwd cms-frontend gql-gen',
+			name: 'gql-gen',
+			prefixColor: 'green',
+		},
+	],
 	{
-		command: 'yarn --cwd cms-frontend dev',
-		name: 'client',
-		prefixColor: 'magenta',
-		env: process.env,
-	},
-	{
-		command: 'yarn --cwd cms-strapi develop',
-		name: 'server',
-		prefixColor: 'cyan',
-		env: process.env,
-	},
-])
+		restartDelay: 2000,
+		restartTries: 5,
+	}
+)

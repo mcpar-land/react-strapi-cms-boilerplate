@@ -10,7 +10,8 @@
 		]
 	},
 	"scripts": {
-		"dev": "node dev.js"
+		"dev": "node dev.js",
+		"gql-gen": "yarn --cwd cms-frontend gql-gen"
 	},
 	"devDependencies": {
 		"concurrently": "^5.2.0"
