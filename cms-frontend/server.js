@@ -7,29 +7,33 @@ const dev = env !== 'production'
 const app = next({ dev })
 const handle = app.getRequestHandler()
 
-const devProxy = {
-	'/api': {
-		target: process.env.STRAPI_ROOT + '/graphql',
-		pathRewrite: { '^/api': '' },
-		changeOrigin: true,
-	},
-	'/strapi': {
-		target: process.env.STRAPI_ROOT,
-		pathRewrite: { '^/strapi': '' },
-		changeOrigin: true,
-	},
-}
-
 app
 	.prepare()
 	.then(() => {
 		const server = express()
 
-		if (dev && devProxy) {
+		if (dev) {
 			const { createProxyMiddleware } = require('http-proxy-middleware')
-			Object.keys(devProxy).forEach((context) => {
-				server.use(createProxyMiddleware(context, devProxy[context]))
-			})
+			server.use(
+				createProxyMiddleware('/api', {
+					target: process.env.STRAPI_ROOT + '/graphql',
+					pathRewrite: { '^/api': '' },
+					changeOrigin: true,
+				})
+			)
+			server.use(
+				createProxyMiddleware('/uploads', {
+					target: process.env.STRAPI_ROOT,
+					changeOrigin: true,
+				})
+			)
+			// server.use(
+			// 	createProxyMiddleware('/strapi', {
+			// 		target: process.env.STRAPI_ROOT,
+			// 		pathRewrite: { '^/strapi': '' },
+			// 		changeOrigin: true,
+			// 	})
+			// )
 		}
 
 		server.all('*', (req, res) => handle(req, res))

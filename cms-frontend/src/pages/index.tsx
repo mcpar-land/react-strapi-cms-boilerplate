@@ -6,16 +6,16 @@ import { Container } from 'next/app'
 import Centerer from '../components/Centerer'
 
 function Home() {
-	const { loading, error, data } = useQuery(MAIN_MENU)
+	// const { loading, error, data } = useQuery(MAIN_MENU)
 
-	if (error) return <pre> ERROR: {JSON.stringify(error, null, 2)}</pre>
-	if (loading) return <h3>Loading...</h3>
+	// if (error) return <pre> ERROR: {JSON.stringify(error, null, 2)}</pre>
+	// if (loading) return <h3>Loading...</h3>
 
 	return (
 		<Centerer width="lg">
-			<MainMenu items={data.mainMenu.main_menu.items} />
-			<h1>Testing Time</h1>
-			<pre>{JSON.stringify(data, null, 2)}</pre>
+			<MainMenu />
+			<h1>Testing Time!</h1>
+			{/* <pre>{JSON.stringify(data, null, 2)}</pre> */}
 		</Centerer>
 	)
 }

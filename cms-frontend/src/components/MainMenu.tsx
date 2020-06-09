@@ -3,6 +3,8 @@ import Link from 'next/link'
 import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 
 import './MainMenu.scss'
+import { useQuery } from '@apollo/react-hooks'
+import { MAIN_MENU } from '../queries/mainMenu'
 
 const MenuItem: React.FC<{ title: string; uri?: string }> = ({
 	title,
@@ -13,7 +15,13 @@ const MenuItem: React.FC<{ title: string; uri?: string }> = ({
 	return uri ? <Link href={'/' + uri}>{e}</Link> : e
 }
 
-const MainMenu: React.FC<{ items: any[] }> = ({ items }) => {
+const MainMenu: React.FC<{}> = ({}) => {
+	const { loading, error, data } = useQuery(MAIN_MENU)
+
+	if (loading) return <div>Loading...</div>
+	if (error) return <div>ERROR</div>
+
+	const items: any[] = data.mainMenu.main_menu.items
 	const menuItems = items.map((item, i) => {
 		if (item.__typename === 'ComponentMenuPageReference') {
 			return (

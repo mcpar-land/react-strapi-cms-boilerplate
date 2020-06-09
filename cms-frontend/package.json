@@ -3,7 +3,7 @@
 	"version": "0.1.0",
 	"private": true,
 	"scripts": {
-		"dev": "node server.js",
+		"dev": "nodemon --watch ./server.js server.js",
 		"build": "next build",
 		"start": "next start",
 		"gql-gen": "gql-gen"
@@ -25,6 +25,7 @@
 		"react": "16.13.1",
 		"react-bootstrap": "^1.0.1",
 		"react-dom": "16.13.1",
+		"react-markdown": "^4.3.1",
 		"sass": "^1.26.8"
 	},
 	"devDependencies": {
@@ -32,6 +33,7 @@
 		"@graphql-codegen/fragment-matcher": "^1.15.1",
 		"@types/node": "^14.0.12",
 		"@types/react": "^16.9.35",
+		"nodemon": "^2.0.4",
 		"typescript": "^3.9.5"
 	}
 }
