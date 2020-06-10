@@ -1,6 +1,6 @@
 # React/Strapi CMS Boilerplate
 
-A Wordpress-style boilerplate for a Strapi-based CMS.
+A Wordpress-style boilerplate for a Strapi-based CMS, using Next.js
 
 ## Libraries used
 
