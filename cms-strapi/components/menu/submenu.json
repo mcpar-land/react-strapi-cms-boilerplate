@@ -10,8 +10,10 @@
       "type": "string",
       "required": true
     },
-    "pages": {
-      "collection": "page"
+    "items": {
+      "type": "component",
+      "repeatable": true,
+      "component": "menu.page-reference"
     }
   }
 }

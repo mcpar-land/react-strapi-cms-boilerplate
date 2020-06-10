@@ -1,0 +1,13 @@
+.page-component-rich-text-columns {
+	display: flex;
+	flex-direction: row;
+
+	.page-component-rich-text {
+		flex-grow: 1;
+		flex-basis: 0;
+
+		&:not(:first-child) {
+			margin-left: 8px;
+		}
+	}
+}

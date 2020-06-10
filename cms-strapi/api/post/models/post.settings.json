@@ -9,12 +9,27 @@
     "timestamps": true
   },
   "attributes": {
-    "Title": {
+    "title": {
       "type": "string",
       "required": true
     },
-    "Body": {
+    "body": {
       "type": "richtext"
+    },
+    "uri": {
+      "type": "string",
+      "required": false,
+      "unique": true
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "draft",
+        "published",
+        "archive"
+      ],
+      "default": "draft",
+      "required": true
     }
   }
 }

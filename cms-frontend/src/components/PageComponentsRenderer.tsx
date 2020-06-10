@@ -16,7 +16,7 @@ const PageComponentsRenderer: React.FC<{
 		const TheComponent = ComponentComponents[componentName]
 		if (!TheComponent)
 			return <ComponentComponents.ComponentError typename={componentName} />
-		return <TheComponent {...c} />
+		return <TheComponent {...c} key={i} />
 	})
 
 	return <>{renderedComponents}</>

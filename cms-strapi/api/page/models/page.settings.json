@@ -23,8 +23,13 @@
         "all-page-components.attachment",
         "all-page-components.image-gallery",
         "all-page-components.image-header",
-        "all-page-components.rich-text"
+        "all-page-components.rich-text",
+        "all-page-components.rich-text-columns",
+        "all-page-components.custom"
       ]
+    },
+    "side_menu": {
+      "model": "menu"
     }
   }
 }

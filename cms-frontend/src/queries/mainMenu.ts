@@ -8,6 +8,8 @@ export const MAIN_MENU = gql`
 				items {
 					__typename
 					... on ComponentMenuPageReference {
+						custom_title
+						feature_link
 						page {
 							title
 							uri
@@ -15,9 +17,13 @@ export const MAIN_MENU = gql`
 					}
 					... on ComponentMenuSubmenu {
 						Name
-						pages {
-							title
-							uri
+						items {
+							custom_title
+							feature_link
+							page {
+								title
+								uri
+							}
 						}
 					}
 				}

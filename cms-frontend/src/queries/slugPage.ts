@@ -11,6 +11,11 @@ export const SLUG_PAGE = gql`
 				... on ComponentAllPageComponentsRichText {
 					text
 				}
+				... on ComponentAllPageComponentsRichTextColumns {
+					columns {
+						text
+					}
+				}
 				... on ComponentAllPageComponentsImageHeader {
 					title
 					background {
@@ -32,6 +37,31 @@ export const SLUG_PAGE = gql`
 						name
 						caption
 						previewUrl
+					}
+				}
+			}
+			side_menu {
+				Name
+				items {
+					__typename
+					... on ComponentMenuPageReference {
+						custom_title
+						feature_link
+						page {
+							title
+							uri
+						}
+					}
+					... on ComponentMenuSubmenu {
+						Name
+						items {
+							custom_title
+							feature_link
+							page {
+								title
+								uri
+							}
+						}
 					}
 				}
 			}

@@ -1,0 +1,15 @@
+{
+  "collectionName": "components_all_page_components_rich_text_columns",
+  "info": {
+    "name": "Rich Text Columns",
+    "icon": "columns"
+  },
+  "options": {},
+  "attributes": {
+    "columns": {
+      "type": "component",
+      "repeatable": true,
+      "component": "all-page-components.rich-text"
+    }
+  }
+}

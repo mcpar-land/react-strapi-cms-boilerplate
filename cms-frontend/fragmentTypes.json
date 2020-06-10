@@ -126,6 +126,9 @@
             "name": "PageConnectionUri"
           },
           {
+            "name": "PageConnectionSide_menu"
+          },
+          {
             "name": "createPagePayload"
           },
           {
@@ -160,6 +163,12 @@
           },
           {
             "name": "PostConnectionBody"
+          },
+          {
+            "name": "PostConnectionUri"
+          },
+          {
+            "name": "PostConnectionStatus"
           },
           {
             "name": "createPostPayload"
@@ -342,6 +351,9 @@
             "name": "ComponentAllPageComponentsImageHeader"
           },
           {
+            "name": "ComponentAllPageComponentsRichTextColumns"
+          },
+          {
             "name": "ComponentAllPageComponentsRichText"
           },
           {
@@ -382,6 +394,12 @@
           },
           {
             "name": "ComponentAllPageComponentsRichText"
+          },
+          {
+            "name": "ComponentAllPageComponentsRichTextColumns"
+          },
+          {
+            "name": "ComponentAllPageComponentsCustom"
           }
         ]
       }

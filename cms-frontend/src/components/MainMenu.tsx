@@ -5,15 +5,7 @@ import { Navbar, Nav, NavDropdown } from 'react-bootstrap'
 import './MainMenu.scss'
 import { useQuery } from '@apollo/react-hooks'
 import { MAIN_MENU } from '../queries/mainMenu'
-
-const MenuItem: React.FC<{ title: string; uri?: string }> = ({
-	title,
-	uri,
-}) => {
-	const e = <span>{title}</span>
-
-	return uri ? <Link href={'/' + uri}>{e}</Link> : e
-}
+import MenuItem from './MenuItem'
 
 const MainMenu: React.FC<{}> = ({}) => {
 	const { loading, error, data } = useQuery(MAIN_MENU)
@@ -24,18 +16,17 @@ const MainMenu: React.FC<{}> = ({}) => {
 	const items: any[] = data.mainMenu.main_menu.items
 	const menuItems = items.map((item, i) => {
 		if (item.__typename === 'ComponentMenuPageReference') {
-			return (
-				<Nav.Link key={i}>
-					<MenuItem title={item.page.title} uri={item.page.uri} />
-				</Nav.Link>
-			)
+			return <MenuItem item={item} component={Nav.Link} key={i} passHref />
 		} else if (item.__typename === 'ComponentMenuSubmenu') {
 			return (
 				<NavDropdown key={i} title={item.Name} id={'nav-dropdown-' + i}>
-					{item.pages.map((subitem, j) => (
-						<NavDropdown.Item key={j}>
-							<MenuItem title={subitem.title} uri={subitem.uri} />
-						</NavDropdown.Item>
+					{item.items.map((subitem, j) => (
+						<MenuItem
+							item={subitem}
+							component={NavDropdown.Item}
+							key={j}
+							passHref
+						/>
 					))}
 				</NavDropdown>
 			)

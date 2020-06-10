@@ -9,6 +9,9 @@ import { useRouter } from 'next/dist/client/router'
 import PageComponentsRenderer from '../components/PageComponentsRenderer'
 import Head from 'next/head'
 
+import './[slug].scss'
+import SideMenu from '../components/SideMenu'
+
 function SlugPage() {
 	const router = useRouter()
 
@@ -25,12 +28,21 @@ function SlugPage() {
 
 	return (
 		<Centerer width="lg">
-			<Head>
-				<title>{page.title}</title>
-			</Head>
 			<MainMenu />
-			<h1>{page.title}</h1>
-			<PageComponentsRenderer components={page.components} />
+			{page ? (
+				<>
+					<Head>
+						<title>{page.title}</title>
+					</Head>
+					<h1>{page.title}</h1>
+					<div className="page-flex">
+						<PageComponentsRenderer components={page.components} />
+						{page.side_menu && <SideMenu menu={page.side_menu} />}
+					</div>
+				</>
+			) : (
+				<div>Page not found.</div>
+			)}
 			<pre>{JSON.stringify(data, null, 2)}</pre>
 		</Centerer>
 	)

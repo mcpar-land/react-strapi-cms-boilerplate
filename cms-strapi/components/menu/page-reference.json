@@ -8,6 +8,16 @@
   "attributes": {
     "page": {
       "model": "page"
+    },
+    "feature_link": {
+      "type": "enumeration",
+      "enum": [
+        "blog",
+        "home"
+      ]
+    },
+    "custom_title": {
+      "type": "string"
     }
   }
 }
