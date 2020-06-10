@@ -1,0 +1,51 @@
+@import '~bootstrap/scss/bootstrap';
+
+.blog-wrap {
+	display: flex;
+
+	flex-direction: row-reverse;
+
+	.blog-sidebar {
+		width: 100%;
+		max-width: 200px;
+		flex-grow: 1;
+		flex-basis: auto;
+		padding: 16px;
+		// background: tan;
+	}
+
+	.blog-main {
+		flex-grow: 1;
+		width: 100%;
+
+		padding: 0px 32px;
+
+		// background: gray;
+	}
+
+	.blog-post-title {
+		font-size: 36pt;
+	}
+}
+
+@include media-breakpoint-up(md) {
+	.blog-wrap {
+		.blog-sidebar {
+			padding-left: 0px;
+		}
+	}
+}
+
+@include media-breakpoint-down(sm) {
+	.blog-wrap {
+		flex-direction: column;
+
+		.blog-sidebar {
+			max-width: 100%;
+		}
+
+		.blog-main {
+			padding: 0px 16px;
+		}
+	}
+}
