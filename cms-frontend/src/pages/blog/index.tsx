@@ -9,7 +9,7 @@ import BlogPage from '../../components/BlogPage'
 
 function BlogHomepage() {
 	return (
-		<BlogPage>
+		<BlogPage homepage>
 			<h1>Blog Homepage</h1>
 		</BlogPage>
 	)

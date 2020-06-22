@@ -30,6 +30,9 @@
       ],
       "default": "draft",
       "required": true
+    },
+    "body_preview": {
+      "type": "text"
     }
   }
 }
