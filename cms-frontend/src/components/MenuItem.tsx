@@ -12,7 +12,8 @@ const MenuItem: React.FC<{
 	className?: string
 	component?: any
 	passHref?: boolean
-}> = ({ item, className, component, passHref = false }) => {
+	active?: boolean
+}> = ({ item, className, component, passHref = false, active = false }) => {
 	let link = 'no link'
 
 	if (item.feature_link == 'blog') {
@@ -27,7 +28,11 @@ const MenuItem: React.FC<{
 
 	return (
 		<Link href={link} passHref={passHref}>
-			<Component className={className}>
+			<Component
+				className={[className, active ? 'menu-item-active' : undefined].join(
+					' '
+				)}
+			>
 				{item.custom_title ||
 					item.page?.title ||
 					item.feature_link ||

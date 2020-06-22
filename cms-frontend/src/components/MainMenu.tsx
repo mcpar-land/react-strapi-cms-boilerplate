@@ -6,6 +6,7 @@ import './MainMenu.scss'
 import { useQuery } from '@apollo/react-hooks'
 import { MAIN_MENU } from '../queries/mainMenu'
 import MenuItem from './MenuItem'
+import { useRouter } from 'next/router'
 
 const MainMenu: React.FC<{}> = ({}) => {
 	const { loading, error, data } = useQuery(MAIN_MENU)
@@ -13,10 +14,24 @@ const MainMenu: React.FC<{}> = ({}) => {
 	if (loading) return <div>Loading...</div>
 	if (error) return <div>ERROR</div>
 
+	const router = useRouter()
+
+	const active = (item) =>
+		item.page?.uri === router.query.slug ||
+		item.feature_link === router.query.slug
+
 	const items: any[] = data.mainMenu.main_menu.items
 	const menuItems = items.map((item, i) => {
 		if (item.__typename === 'ComponentMenuPageReference') {
-			return <MenuItem item={item} component={Nav.Link} key={i} passHref />
+			return (
+				<MenuItem
+					item={item}
+					component={Nav.Link}
+					key={i}
+					passHref
+					active={active(item)}
+				/>
+			)
 		} else if (item.__typename === 'ComponentMenuSubmenu') {
 			return (
 				<NavDropdown key={i} title={item.Name} id={'nav-dropdown-' + i}>
@@ -26,6 +41,7 @@ const MainMenu: React.FC<{}> = ({}) => {
 							component={NavDropdown.Item}
 							key={j}
 							passHref
+							active={active(subitem)}
 						/>
 					))}
 				</NavDropdown>
@@ -36,7 +52,7 @@ const MainMenu: React.FC<{}> = ({}) => {
 	return (
 		<Navbar bg="light" expand="sm">
 			<Link href="/">
-				<Navbar.Brand>Brand Name</Navbar.Brand>
+				<Navbar.Brand className="nav-brand">Brand Name</Navbar.Brand>
 			</Link>
 			<Navbar.Toggle />
 			<Navbar.Collapse>
